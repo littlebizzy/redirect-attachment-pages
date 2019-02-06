@@ -3,42 +3,78 @@
 // Subpackage namespace
 namespace LittleBizzy\DisableAttachmentPages\Core;
 
-// Aliased namespaces
-use \LittleBizzy\DisableAttachmentPages\Helpers;
-
 /**
  * Object Factory class
  *
  * @package Disable Attachment Pages
  * @subpackage Core
  */
-class Factory extends Helpers\Factory {
+class Factory {
+
+
+
+	// Properties
+	// ---------------------------------------------------------------------------------------------------
 
 
 
 	/**
-	 * A core object
+	 * Plugin object
 	 */
-	protected function createCoreObject() {
-		return new MyCoreObject;
+	private $plugin;
+
+
+
+	// Initialization
+	// ---------------------------------------------------------------------------------------------------
+
+
+
+	/**
+	 * Constructor
+	 */
+	public function __construct($plugin) {
+		$this->plugin = $plugin;
+	}
+
+
+
+	// Methods
+	// ---------------------------------------------------------------------------------------------------
+
+
+
+	/**
+	 * Magic GET method
+	 */
+	public function __get($name) {
+		$method = 'create'.ucfirst($name);
+		return method_exists($this, $method)? $this->{$method}() : null;
 	}
 
 
 
 	/**
-	 * A singleton object instance
+	 * Magic CALL method
 	 */
-	protected function createOtherObject() {
-		return Subdirectory\TheClassName::instance($this->plugin);
+	public function __call($name, $args = null) {
+		$method = 'create'.ucfirst($name);
+		$args = (!empty($args) && is_array($args))? $args[0] : null;
+		return method_exists($this, $method)? $this->{$method}($args) : null;
 	}
 
 
 
+	// Core objects creation
+	// ---------------------------------------------------------------------------------------------------
+
+
+
 	/**
-	 * Create new object
+	 * Creates the Attachment Object
 	 */
-	protected function createNewObject($args) {
-		return new Subdirectory\TheClassName($args);
+	private function createAttachments() {
+		return Attachments::instance($this->plugin);
 	}
 
 
