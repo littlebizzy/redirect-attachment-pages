@@ -34,6 +34,4 @@ Completely disables media attachment pages which then become 404 errors to avoid
 
 ### Support Issues
 
-*Please do not submit Pull Requests. Instead, kindly create a new Issue with relevant information if you are an experienced developer, otherwise you may become a [LittleBizzy Member](https://www.littlebizzy.com/members) if your company requires official support.*
-
-***No emails, please! Thank you.***
+Please do not submit Pull Requests. Instead, kindly create a new Issue with relevant information if you are an experienced developer, otherwise you may become a [LittleBizzy Member](https://www.littlebizzy.com/members) if your company requires official support.
