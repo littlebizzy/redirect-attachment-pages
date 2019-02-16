@@ -26,3 +26,5 @@ Completely disables media attachment pages which then become 404 errors to avoid
 * tested with PHP 5.6 (no fatal errors only)
 * uses PHP namespaces
 * object-oriented codebase
+* all media attachment pages will become "404 Not Found" errors
+* (currently does not work with 404 To Homepage however)
