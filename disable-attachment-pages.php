@@ -3,7 +3,7 @@
 Plugin Name: Disable Attachment Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-attachment-pages
 Description: Disables attachment page URLs
-Version: 1.2.0
+Version: 1.1.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
