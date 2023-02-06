@@ -3,19 +3,33 @@
 Plugin Name: Disable Attachment Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-attachment-pages
 Description: Disables attachment page URLs
-Version: 1.1.0
+Version: 1.2.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-WC requires at least: 3.3
-WC tested up to: 3.5
+GitHub Plugin URI: littlebizzy/disable-attachment-pages
+Primary Branch: master
 Prefix: DSATCH
 */
 
 // Plugin namespace
 namespace LittleBizzy\DisableAttachmentPages;
 
+
+// disable wordpress.org updates
+add_filter(
+	'gu_override_dot_org',
+	function ( $overrides ) {
+		return array_merge(
+			$overrides,
+			array( 'disable-attachment-pages/disable-attachment-pages.php' )
+		);
+	}
+);
+
+
+// all of this needs to be cleaned up
 /**
  * Attachments class
  *
