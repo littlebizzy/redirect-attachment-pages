@@ -4,6 +4,10 @@ Disables attachment page URLs
 
 ## Changelog
 
+### 1.1.0
+- disabled wordpress.org updates
+- support for Git Updater
+
 ### 1.0.0
 - initial release
 - tested with PHP 7.0, 7.1, 7.2
