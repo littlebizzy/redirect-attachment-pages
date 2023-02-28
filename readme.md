@@ -6,6 +6,7 @@ Disables attachment page URLs
 
 ### 1.2.0
 - fix fatal error (child namespace removed)
+- NOTE: incomplete functionality
 
 ### 1.1.0
 - disabled wordpress.org updates
