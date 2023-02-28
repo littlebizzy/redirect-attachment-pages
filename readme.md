@@ -4,9 +4,13 @@ Disables attachment page URLs
 
 ## Changelog
 
+### 1.2.0
+- fix fatal error (child namespace removed)
+
 ### 1.1.0
 - disabled wordpress.org updates
 - support for Git Updater
+- remove admin notices
 
 ### 1.0.0
 - initial release
