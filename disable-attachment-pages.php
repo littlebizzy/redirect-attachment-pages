@@ -3,7 +3,7 @@
 Plugin Name: Disable Attachment Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-attachment-pages
 Description: Disables attachment page URLs
-Version: 1.2.0
+Version: 1.2.1
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
@@ -13,7 +13,7 @@ Primary Branch: master
 Prefix: DSATCH
 */
 
-// Plugin namespace
+// plugin namespace
 namespace LittleBizzy\DisableAttachmentPages;
 
 
@@ -29,13 +29,11 @@ add_filter(
 );
 
 
-// all of this needs to be cleaned up
-/**
- * Attachments class
- *
- * @package Disable Attachment Pages
- * //// @subpackage Core
- */
+// initialize class
+add_action( 'plugins_loaded', array( 'Attachments_Not_Found', 'init' ));
+
+
+
 class Attachments_Not_Found {
 
 
@@ -169,3 +167,5 @@ class Attachments_Not_Found {
 
 
 }
+
+// https://wordpress.stackexchange.com/questions/70055/best-way-to-initiate-a-class-in-a-wp-plugin
