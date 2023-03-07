@@ -30,8 +30,7 @@ add_filter(
 
 
 // initialize class
-add_action( 'plugins_loaded', array( 'Attachments_Not_Found', 'init' ));
-
+//
 
 
 class Attachments_Not_Found {
