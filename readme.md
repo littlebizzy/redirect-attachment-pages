@@ -4,6 +4,10 @@ Disables attachment page URLs
 
 ## Changelog
 
+### 1.2.1
+- The code has been refactored accordance with WordPress standards.
+- NOTE: incomplete functionality
+
 ### 1.2.0
 - fix fatal error (child namespace removed)
 - NOTE: incomplete functionality
