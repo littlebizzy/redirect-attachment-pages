@@ -1,0 +1,74 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Disable Attachment Pages\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-10 15:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.1.1\n"
+"X-Domain: disable-attachment-pages"
+
+#: src/Settings.php:109
+msgid "404 page"
+msgstr ""
+
+#: src/Settings.php:85
+msgid "Default redirection"
+msgstr ""
+
+#: src/Settings.php:86
+msgid "Default redirection for attachments."
+msgstr ""
+
+#. Name of the plugin
+msgid "Disable Attachment Pages"
+msgstr ""
+
+#. Description of the plugin
+#: src/Settings.php:74
+msgid "Disables attachment page URLs"
+msgstr ""
+
+#: src/Settings.php:101
+msgid "Fallback redirection"
+msgstr ""
+
+#: src/Settings.php:94 src/Settings.php:110
+msgid "File URL"
+msgstr ""
+
+#: src/Settings.php:92 src/Settings.php:108
+msgid "Home page"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.littlebizzy.com"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.littlebizzy.com/plugins/disable-attachment-pages"
+msgstr ""
+
+#. Author of the plugin
+msgid "LittleBizzy"
+msgstr ""
+
+#: src/Settings.php:93
+msgid "Parent page"
+msgstr ""
+
+#: src/Settings.php:58
+msgid "Settings"
+msgstr ""
+
+#: src/Settings.php:102
+msgid "Where to redirect if parent page is deleted or not set."
+msgstr ""

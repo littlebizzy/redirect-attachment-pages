@@ -4,6 +4,9 @@ Disables attachment page URLs
 
 ## Changelog
 
+### 1.3.0
+- Added settings page.
+
 ### 1.2.1
 - The code has been refactored accordance with WordPress standards.
 - NOTE: incomplete functionality
