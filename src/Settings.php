@@ -16,6 +16,7 @@ use BadMethodCallException;
 /**
  * Class Settings
  *
+ * @method static get_options(): array
  * @method static get_default_redirection(): string
  *
  * @package LittleBizzy\DisableAttachmentPages
@@ -31,9 +32,16 @@ class Settings {
 			array( $this, 'settings_link' )
 		);
 
+		// Register options page.
 		add_action(
-			'cmb2_admin_init',
-			array( $this, 'register_options_metabox' )
+			'admin_menu',
+			array( $this, 'register_options_page' )
+		);
+
+		// Register settings.
+		add_action(
+			'admin_init',
+			array( $this, 'settings_init' )
 		);
 	}
 
@@ -57,39 +65,85 @@ class Settings {
 	}
 
 	/**
-	 * Initialize integration settings form fields.
+	 * Register options page.
+	 */
+	public function register_options_page(): void {
+		add_options_page(
+			esc_html__( 'Disables attachment page URLs', 'disable-attachment-pages' ),
+			esc_html__( 'Disables attachment page URLs', 'disable-attachment-pages' ),
+			'manage_options',
+			'disable-attachment-pages',
+			array( $this, 'options_page_html' )
+		);
+	}
+
+	/**
+	 * Render options page.
 	 *
 	 * @return void
 	 */
-	public function register_options_metabox() {
-		$cmb_options = \new_cmb2_box(
+	public function options_page_html(): void {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		settings_errors( 'disable-attachment-pages_messages' );
+
+		require_once __DIR__ . '/partials/options-page-html.php';
+	}
+
+	/**
+	 * Register option and settings.
+	 */
+	public function settings_init(): void {
+		// Register setting for 'disable-attachment-pages' page.
+		register_setting(
+			'disable-attachment-pages',
+			'disable-attachment-pages',
 			array(
-				'id'           => 'disable-attachment-pages',
-				'title'        => esc_html__( 'Disables attachment page URLs', 'disable-attachment-pages' ),
-				'object_types' => array( 'options-page' ),
-				'option_key'   => 'disable-attachment-pages',
-				'icon_url'     => 'dashicons-external',
-				'capability'   => 'manage_options',
-				'parent_slug'  => 'options-general.php',
+				'type'              => 'array',
+				'default'           => array( 'default_redirection' => 'home_page' ),
+				'sanitize_callback' => array( $this, 'sanitize_options' )
 			)
 		);
 
-		$cmb_options->add_field(
+		// Register section in the 'disable-attachment-pages' page.
+		add_settings_section(
+			'default',
+			'',
+			'__return_empty_string',
+			'disable-attachment-pages'
+		);
+
+		// Register field in the 'default' section, inside the 'disable-attachment-pages' page.
+		add_settings_field(
+			'default_redirection',
+			__( 'Redirect to:', 'disable-attachment-pages' ),
+			array( $this, 'field_select_cb' ),
+			'disable-attachment-pages',
+			'default',
 			array(
-				'name'             => __( 'Redirect to:', 'disable-attachment-pages' ),
-				'desc'             => __( 'Note: if you choose parent page, but parent page is trashed/deleted, we will redirect to homepage instead.', 'disable-attachment-pages' ),
-				'id'               => 'default_redirection',
-				'type'             => 'select',
-				'show_option_none' => false,
-				'default'          => 'home_page',
-				'options'          => array(
+				'label_for'   => 'default_redirection',
+				'description' => __( 'Note: if you choose parent page, but parent page is trashed/deleted, we will redirect to homepage instead.', 'disable-attachment-pages' ),
+				'default'     => 'home_page',
+				'options'     => array(
 					'home_page'   => __( 'Home page', 'disable-attachment-pages' ),
 					'parent_page' => __( 'Parent page', 'disable-attachment-pages' ),
 					'file_url'    => __( 'File', 'disable-attachment-pages' ),
 				),
-				'sanitization_cb'  => array( $this, 'sanitize_action' ),
 			)
 		);
+	}
+
+	/**
+	 * Field select callbakc function.
+	 *
+	 * @param array $args Arguments.
+	 *
+	 * @void
+	 */
+	public function field_select_cb( array $args ): void {
+		require_once __DIR__ . '/partials/field-select.php';
 	}
 
 	/**
@@ -107,10 +161,7 @@ class Settings {
 			throw new BadMethodCallException( $name . ' is not defined in ' . __CLASS__ );
 		}
 
-		$options = shortcode_atts(
-			array( 'default_redirection' => 'home_page' ),
-			(array) get_option( 'disable-attachment-pages', array() )
-		);
+		$options = (array) get_option( 'disable-attachment-pages' );
 
 		$option_name = substr( $name, 4 );
 
@@ -124,17 +175,19 @@ class Settings {
 	}
 
 	/**
-	 * Sanitize action.
+	 * Sanitize options.
 	 *
-	 * @param string|null $action Action.
+	 * @param array $options Options.
 	 *
-	 * @return string
+	 * @return array
 	 */
-	public function sanitize_action( ?string $action ): string {
-		$action = trim( $action );
+	public function sanitize_options( array $options ): array {
+		$redirections = array( 'home_page', 'parent_page', 'file_url' );
 
-		$actions = array( 'home_page', 'parent_page', 'file_url' );
+		$default_redirection = trim( $options['default_redirection'] );
 
-		return in_array( $action, $actions, true ) ? $action : 'home_page';
+		$options['default_redirection'] = in_array( $default_redirection, $redirections, true ) ? $default_redirection : 'home_page';
+
+		return $options;
 	}
 }

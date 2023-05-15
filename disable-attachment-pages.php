@@ -3,7 +3,7 @@
  * Plugin Name: Disable Attachment Pages
  * Plugin URI: https://www.littlebizzy.com/plugins/disable-attachment-pages
  * Description: Disables attachment page URLs
- * Version: 1.3.0
+ * Version: 1.4.0
  * Author: LittleBizzy
  * Author URI: https://www.littlebizzy.com
  * License: GPLv3
@@ -27,6 +27,6 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'DISABLE_ATTACHMENT_PAGES_FILE', __FILE__ );
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/src/Bootstrap.php';
 
 new Bootstrap();

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Disable Attachment Pages\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 15:51+0000\n"
+"POT-Creation-Date: 2023-03-16 16:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,36 +16,20 @@ msgstr ""
 "X-Loco-Version: 2.6.4; wp-6.1.1\n"
 "X-Domain: disable-attachment-pages"
 
-#: src/Settings.php:109
-msgid "404 page"
-msgstr ""
-
-#: src/Settings.php:85
-msgid "Default redirection"
-msgstr ""
-
-#: src/Settings.php:86
-msgid "Default redirection for attachments."
-msgstr ""
-
 #. Name of the plugin
 msgid "Disable Attachment Pages"
 msgstr ""
 
 #. Description of the plugin
-#: src/Settings.php:74
+#: src/Settings.php:72 src/Settings.php:73
 msgid "Disables attachment page URLs"
 msgstr ""
 
-#: src/Settings.php:101
-msgid "Fallback redirection"
+#: src/Settings.php:132
+msgid "File"
 msgstr ""
 
-#: src/Settings.php:94 src/Settings.php:110
-msgid "File URL"
-msgstr ""
-
-#: src/Settings.php:92 src/Settings.php:108
+#: src/Settings.php:130
 msgid "Home page"
 msgstr ""
 
@@ -61,14 +45,24 @@ msgstr ""
 msgid "LittleBizzy"
 msgstr ""
 
-#: src/Settings.php:93
+#: src/Settings.php:127
+msgid ""
+"Note: if you choose parent page, but parent page is trashed/deleted, we will "
+"redirect to homepage instead."
+msgstr ""
+
+#: src/Settings.php:131
 msgid "Parent page"
 msgstr ""
 
-#: src/Settings.php:58
-msgid "Settings"
+#: src/Settings.php:121
+msgid "Redirect to:"
 msgstr ""
 
-#: src/Settings.php:102
-msgid "Where to redirect if parent page is deleted or not set."
+#: src/partials/options-page-html.php:15
+msgid "Save Settings"
+msgstr ""
+
+#: src/Settings.php:60
+msgid "Settings"
 msgstr ""

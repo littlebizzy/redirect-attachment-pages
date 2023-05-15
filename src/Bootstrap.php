@@ -9,6 +9,9 @@ declare( strict_types=1 );
 
 namespace LittleBizzy\DisableAttachmentPages;
 
+require_once __DIR__ . '/Settings.php';
+require_once __DIR__ . '/RequestHandler.php';
+
 /**
  * Class Bootstrap
  *
