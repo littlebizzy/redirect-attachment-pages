@@ -2,14 +2,14 @@
 /**
  * Class Settings
  *
- * @package LittleBizzy\DisableAttachmentPages
+ * @package LittleBizzy\RedirectAttachmentPages
  */
 
 declare( strict_types=1 );
 
 // phpcs:disable Squiz.Commenting.FunctionComment.SpacingAfterParamType
 
-namespace LittleBizzy\DisableAttachmentPages;
+namespace LittleBizzy\RedirectAttachmentPages;
 
 use BadMethodCallException;
 
@@ -19,7 +19,7 @@ use BadMethodCallException;
  * @method static get_options(): array
  * @method static get_default_redirection(): string
  *
- * @package LittleBizzy\DisableAttachmentPages
+ * @package LittleBizzy\RedirectAttachmentPages
  */
 class Settings {
 	/**
@@ -28,7 +28,7 @@ class Settings {
 	public function __construct() {
 		// This will add the direct "Settings" link inside wp plugins menu.
 		add_filter(
-			'plugin_action_links_disable-attachment-pages/disable-attachment-pages.php',
+			'plugin_action_links_redirect-attachment-pages/redirect-attachment-pages.php',
 			array( $this, 'settings_link' )
 		);
 
@@ -56,8 +56,8 @@ class Settings {
 		$settings = array(
 			'setting' => sprintf(
 				'<a href="%s">%s</a>',
-				admin_url( 'admin.php?page=disable-attachment-pages' ),
-				__( 'Settings', 'disable-attachment-pages' )
+				admin_url( 'admin.php?page=redirect-attachment-pages' ),
+				__( 'Settings', 'redirect-attachment-pages' )
 			),
 		);
 
@@ -69,10 +69,10 @@ class Settings {
 	 */
 	public function register_options_page(): void {
 		add_options_page(
-			esc_html__( 'Disables attachment page URLs', 'disable-attachment-pages' ),
-			esc_html__( 'Disables attachment page URLs', 'disable-attachment-pages' ),
+			esc_html__( 'Redirect attachment page URLs', 'redirect-attachment-pages' ),
+			esc_html__( 'Redirect attachment page URLs', 'redirect-attachment-pages' ),
 			'manage_options',
-			'disable-attachment-pages',
+			'redirect-attachment-pages',
 			array( $this, 'options_page_html' )
 		);
 	}
@@ -87,7 +87,7 @@ class Settings {
 			return;
 		}
 
-		settings_errors( 'disable-attachment-pages_messages' );
+		settings_errors( 'redirect-attachment-pages_messages' );
 
 		require_once __DIR__ . '/partials/options-page-html.php';
 	}
@@ -96,10 +96,10 @@ class Settings {
 	 * Register option and settings.
 	 */
 	public function settings_init(): void {
-		// Register setting for 'disable-attachment-pages' page.
+		// Register setting for 'redirect-attachment-pages' page.
 		register_setting(
-			'disable-attachment-pages',
-			'disable-attachment-pages',
+			'redirect-attachment-pages',
+			'redirect-attachment-pages',
 			array(
 				'type'              => 'array',
 				'default'           => array( 'default_redirection' => 'home_page' ),
@@ -107,29 +107,29 @@ class Settings {
 			)
 		);
 
-		// Register section in the 'disable-attachment-pages' page.
+		// Register section in the 'redirect-attachment-pages' page.
 		add_settings_section(
 			'default',
 			'',
 			'__return_empty_string',
-			'disable-attachment-pages'
+			'redirect-attachment-pages'
 		);
 
-		// Register field in the 'default' section, inside the 'disable-attachment-pages' page.
+		// Register field in the 'default' section, inside the 'redirect-attachment-pages' page.
 		add_settings_field(
 			'default_redirection',
-			__( 'Redirect to:', 'disable-attachment-pages' ),
+			__( 'Redirect to:', 'redirect-attachment-pages' ),
 			array( $this, 'field_select_cb' ),
-			'disable-attachment-pages',
+			'redirect-attachment-pages',
 			'default',
 			array(
 				'label_for'   => 'default_redirection',
-				'description' => __( 'Note: if you choose parent page, but parent page is trashed/deleted, we will redirect to homepage instead.', 'disable-attachment-pages' ),
+				'description' => __( 'Note: if you choose parent page, but parent page is trashed/deleted, we will redirect to homepage instead.', 'redirect-attachment-pages' ),
 				'default'     => 'home_page',
 				'options'     => array(
-					'home_page'   => __( 'Home page', 'disable-attachment-pages' ),
-					'parent_page' => __( 'Parent page', 'disable-attachment-pages' ),
-					'file_url'    => __( 'File', 'disable-attachment-pages' ),
+					'home_page'   => __( 'Home page', 'redirect-attachment-pages' ),
+					'parent_page' => __( 'Parent page', 'redirect-attachment-pages' ),
+					'file_url'    => __( 'File', 'redirect-attachment-pages' ),
 				),
 			)
 		);
@@ -161,7 +161,7 @@ class Settings {
 			throw new BadMethodCallException( $name . ' is not defined in ' . __CLASS__ );
 		}
 
-		$options = (array) get_option( 'disable-attachment-pages' );
+		$options = (array) get_option( 'redirect-attachment-pages' );
 
 		$option_name = substr( $name, 4 );
 
