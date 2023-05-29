@@ -1,7 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Disable Attachment Pages\n"
+"Project-Id-Version: Redirect Attachment Pages\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-16 16:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -14,15 +14,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.6.4; wp-6.1.1\n"
-"X-Domain: disable-attachment-pages"
+"X-Domain: redirect-attachment-pages"
 
 #. Name of the plugin
-msgid "Disable Attachment Pages"
+msgid "Redirect Attachment Pages"
 msgstr ""
 
 #. Description of the plugin
 #: src/Settings.php:72 src/Settings.php:73
-msgid "Disables attachment page URLs"
+msgid "Redirect attachment page URLs"
 msgstr ""
 
 #: src/Settings.php:132
@@ -38,7 +38,7 @@ msgid "https://www.littlebizzy.com"
 msgstr ""
 
 #. URI of the plugin
-msgid "https://www.littlebizzy.com/plugins/disable-attachment-pages"
+msgid "https://www.littlebizzy.com/plugins/redirect-attachment-pages"
 msgstr ""
 
 #. Author of the plugin
