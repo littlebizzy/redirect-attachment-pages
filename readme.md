@@ -1,8 +1,12 @@
-# Disable Attachment Pages
+# Redirect Attachment Pages
 
-Disables attachment page URLs
+Redirect attachment page URLs
 
 ## Changelog
+
+### 1.4.0
+- Changed name to Redirect Attachment Pages
+- Refactored to use only Settings API (no frameworks)
 
 ### 1.3.0
 - Added settings page.
