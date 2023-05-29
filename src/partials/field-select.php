@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use LittleBizzy\DisableAttachmentPages\Settings;
+use LittleBizzy\RedirectAttachmentPages\Settings;
 
 /* @global $args */
 
@@ -10,7 +10,7 @@ $field_id = esc_attr( $args['label_for'] );
 
 ?>
 
-<select id="<?php echo $field_id; ?>" name="disable-attachment-pages[<?php echo $field_id ?>]">
+<select id="<?php echo $field_id; ?>" name="redirect-attachment-pages[<?php echo $field_id ?>]">
 
 	<?php foreach ( $args['options'] as $value => $label ) : ?>
 		<option
