@@ -2,12 +2,12 @@
 /**
  * Class Bootstrap
  *
- * @package LittleBizzy\DisableAttachmentPages
+ * @package LittleBizzy\RedirectAttachmentPages
  */
 
 declare( strict_types=1 );
 
-namespace LittleBizzy\DisableAttachmentPages;
+namespace LittleBizzy\RedirectAttachmentPages;
 
 require_once __DIR__ . '/Settings.php';
 require_once __DIR__ . '/RequestHandler.php';
@@ -15,7 +15,7 @@ require_once __DIR__ . '/RequestHandler.php';
 /**
  * Class Bootstrap
  *
- * @package LittleBizzy\DisableAttachmentPages
+ * @package LittleBizzy\RedirectAttachmentPages
  */
 class Bootstrap {
 	/**
@@ -23,9 +23,9 @@ class Bootstrap {
 	 */
 	public function __construct() {
 		load_plugin_textdomain(
-			'disable-attachment-pages',
+			'redirect-attachment-pages',
 			false,
-			plugin_basename( dirname( DISABLE_ATTACHMENT_PAGES_FILE ) ) . '/languages'
+			plugin_basename( dirname( REDIRECT_ATTACHMENT_PAGES_FILE ) ) . '/languages'
 		);
 
 		new Settings();
@@ -48,7 +48,7 @@ class Bootstrap {
 	public function disable_builtin_updates( array $overrides ): array {
 		return array_merge(
 			$overrides,
-			array( 'disable-attachment-pages/disable-attachment-pages.php' )
+			array( 'redirect-attachment-pages/redirect-attachment-pages.php' )
 		);
 	}
 }
