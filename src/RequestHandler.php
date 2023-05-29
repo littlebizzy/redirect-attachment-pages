@@ -2,19 +2,19 @@
 /**
  * Class RequestHandler
  *
- * @package LittleBizzy\DisableAttachmentPages
+ * @package LittleBizzy\RedirectAttachmentPages
  */
 
 declare( strict_types=1 );
 
 //phpcs:disable WordPress.WP.AlternativeFunctions.file_system_read_readfile
 
-namespace LittleBizzy\DisableAttachmentPages;
+namespace LittleBizzy\RedirectAttachmentPages;
 
 /**
  * Class RequestHandler
  *
- * @package LittleBizzy\DisableAttachmentPages
+ * @package LittleBizzy\RedirectAttachmentPages
  */
 class RequestHandler {
 	const ATTACHMENT_REDIRECT_CODE = 301;
